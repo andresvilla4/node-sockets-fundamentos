@@ -11,32 +11,8 @@
 <body>
     <h1>Programa de Colas</h1>
     <script src="socket.io/socket.io.js"></script>
-    <script>
-        var socket = io();
-
-        socket.on('connect', function(){
-            console.log('Conectado al servidor');
-        });
-
-// EScuchar info
-        socket.on('disconnect', function(){
-            console.log('Conexión perdida con el servidor');
-        });
-
-        // Enviar info
-        socket.emit('enviarMensaje', {
-            usuario: 'Fernando',
-            mensaje: 'Hola mundo'
-        }, function(resp){
-            console.log('respuesta server: ', resp);
-        });
-
-        // Escuchar info
-        socket.on('enviarMensaje', function(mensaje){
-            console.log('Administrador: ', mensaje);
-        });
-
-    </script>
+    <script src="js/socket-custom.js"></script>
+    
 </body>
 
 </html>
