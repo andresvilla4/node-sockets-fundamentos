@@ -26,8 +26,17 @@ io.on('connection', (client) => {
     });
 
     // Escuchar al cliente
-    client.on('enviarMensaje', (mensaje) => {
-        console.log(mensaje);
+    client.on('enviarMensaje', (mensaje, callback) => {
+        //console.log(mensaje);
+        if (mensaje.usuario) {
+            callback({
+                resp: 'Todo salió bien.'
+            });
+        } else {
+            callback({
+                resp: 'Todo salió mal.'
+            });
+        }
     });
 });
 
