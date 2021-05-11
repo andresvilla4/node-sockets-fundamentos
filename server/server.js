@@ -13,6 +13,10 @@ app.use(express.static(publicPath));
 // Comunicación del backend
 let io = socketIO(server);
 
+io.on('connection', (client) => {
+    console.log('Usuario conectado');
+});
+
 server.listen(port, (err) => {
 
     if (err) throw new Error(err);
